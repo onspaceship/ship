@@ -5,12 +5,16 @@ go 1.17
 require (
 	github.com/fatih/color v1.9.0
 	github.com/mitchellh/go-homedir v1.1.0
+	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0
+	github.com/zalando/go-keyring v0.1.1
 )
 
 require (
+	github.com/danieljoos/wincred v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/godbus/dbus/v5 v5.0.4 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
