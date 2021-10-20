@@ -22,15 +22,12 @@ Currently implemented commands will be checked off below:
 
 - ✅ **`login`** - Logs ship into your Spaceship account.
 - ✅ **`logout`** - Logs ship out of the currently logged-in Spaceship account.
-- 🔳 **`delivery`** - A set of sub-commands for deliveries.
-  - 🔳 **`delivery list`** - Gets a list of recent deliveries.
-  - 🔳 **`delivery setup`** - Sets up delivery of an app to your current Kubernetes cluster.
-- 🔳 **`build`** - A set of sub-commands for builds.
-  - 🔳 **`build list`** - Gets a list of recent builds.
-  - 🔳 **`build create`** - Creates a new manual image build from the current repo.
-- 🔳 **`k8s`** - A set of sub-commands for working with Kubernetes.
-  - 🔳 **`k8s install`** - Installs the Spaceship Agent into your current Kubernetes cluster.
-  - 🔳 **`k8s new`** - Set up a Deployment in Kubernetes for the current repo.
+- 🔳 **`configure-docker`** - Sets up Docker authentication to the Magic Container Registry.
+- 🔳 **`install-agent`** - Installs the Spaceship Agent into your current Kubernetes cluster.
+- 🔳 **`setup-delivery`** - Sets up delivery of an app to your current Kubernetes cluster.
+- 🔳 **`create-k8s-app`** - Set up a Deployment in Kubernetes for the current repo. (Note: This is planned to be a separate tool as well)
+- 🔳 **`deliveries`** - Gets a list of recent deliveries.
+- 🔳 **`builds`** - Gets a list of recent builds.
 - 🔳 **`ship it`** - Starts a delivery for the current repo. :shipit:
 
 ## Development
