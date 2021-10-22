@@ -24,6 +24,10 @@ var setupDeliveryCmd = &cobra.Command{
 		if len(args) != 1 {
 			return errors.New("a deployment name is required")
 		}
+		if viper.GetString("current_app") == "" {
+			return errors.New("the --app flag is required")
+		}
+
 		return nil
 	},
 	Run: func(cmd *cobra.Command, args []string) {
@@ -69,7 +73,5 @@ var setupDeliveryCmd = &cobra.Command{
 }
 
 func init() {
-	viper.SetDefault("registry_host", defaultRegistryHost)
-
 	rootCmd.AddCommand(setupDeliveryCmd)
 }
