@@ -30,15 +30,15 @@ var loginCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), tokenRequestTimeout)
 		defer cancel()
 
-		client := client.NewClient()
+		core := client.NewClient()
 
-		_, err := client.GetUser()
+		_, err := core.GetUser()
 		if err == nil {
 			color.HiBlue("You're already logged in!")
 			os.Exit(0)
 		}
 
-		url, err := client.GetTokenURL()
+		url, err := core.GetTokenURL()
 		if err != nil {
 			log.Fatalf("Could not get a login URL: %v", err)
 		}
@@ -48,14 +48,15 @@ var loginCmd = &cobra.Command{
 
 		urlParts := strings.Split(url, "/")
 		code := urlParts[len(urlParts)-1]
-		tokenStr, err := fetchToken(ctx, client, code)
+		tokenStr, err := fetchToken(ctx, core, code)
 		if err != nil {
 			log.Fatal(err)
 		}
 
 		token.SaveToken(tokenStr)
+		core = client.NewClient()
 
-		user, err := client.GetUser()
+		user, err := core.GetUser()
 		if err != nil {
 			log.Fatal(err)
 		}
