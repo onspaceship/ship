@@ -55,16 +55,19 @@ func initConfig() {
 		log.Fatal(err)
 	}
 
-	viper.AddConfigPath(home + "/.ship")
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
+	configPath := home + "/.ship/config.yaml"
+	viper.SetConfigFile(configPath)
 
 	viper.SetEnvPrefix("ship")
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err != nil {
-		if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
+		if !os.IsNotExist(err) {
 			log.Fatal(err)
 		}
+	}
+
+	if err = viper.WriteConfig(); err != nil {
+		log.Fatal(err)
 	}
 }
