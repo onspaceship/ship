@@ -14,6 +14,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/pkg/browser"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 const (
@@ -49,11 +50,28 @@ var loginCmd = &cobra.Command{
 		code := urlParts[len(urlParts)-1]
 		tokenStr, err := fetchToken(ctx, client, code)
 		if err != nil {
-			color.HiRed(err.Error())
-		} else {
-			token.SaveToken(tokenStr)
-			color.HiBlue("You are now logged into Spaceship! 🚀")
+			log.Fatal(err)
 		}
+
+		token.SaveToken(tokenStr)
+
+		user, err := client.GetUser()
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		if len(user.Teams) == 0 {
+			color.HiRed("You must be a member of at least one team.")
+			token.ClearToken()
+			os.Exit(1)
+		}
+
+		viper.Set("current_team", user.Teams[0].ID)
+		if err = viper.WriteConfig(); err != nil {
+			log.Fatal(err)
+		}
+
+		color.HiBlue("You are now logged into Spaceship! 🚀")
 	},
 }
 

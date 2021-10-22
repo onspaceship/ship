@@ -1,10 +1,16 @@
 package client
 
 type UserResponse struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Handle string `json:"handle"`
-	Email  string `json:"email"`
+	ID     string         `json:"id"`
+	Name   string         `json:"name"`
+	Handle string         `json:"handle"`
+	Email  string         `json:"email"`
+	Teams  []TeamResponse `json:"teams"`
+}
+
+type TeamResponse struct {
+	ID   string `json:"id"`
+	Name string `json:"name"`
 }
 
 func (client *Client) GetUser() (UserResponse, error) {
