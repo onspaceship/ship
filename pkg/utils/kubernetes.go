@@ -15,15 +15,17 @@ import (
 )
 
 func NewKubernetesClient() *kubernetes.Clientset {
-	kubeConfig := clientcmd.NewNonInteractiveDeferredLoadingClientConfig(
-		clientcmd.NewDefaultClientConfigLoadingRules(),
-		&clientcmd.ConfigOverrides{},
-	)
-
-	config, err := kubeConfig.ClientConfig()
+	config, err := LoadKubeConfig().ClientConfig()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	return kubernetes.NewForConfigOrDie(config)
+}
+
+func LoadKubeConfig() clientcmd.ClientConfig {
+	return clientcmd.NewNonInteractiveDeferredLoadingClientConfig(
+		clientcmd.NewDefaultClientConfigLoadingRules(),
+		&clientcmd.ConfigOverrides{},
+	)
 }
