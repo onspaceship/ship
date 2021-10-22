@@ -67,7 +67,7 @@ var loginCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		viper.Set("current_team", user.Teams[0].ID)
+		viper.Set("current_team", user.Teams[0].Handle)
 		if err = viper.WriteConfig(); err != nil {
 			log.Fatal(err)
 		}

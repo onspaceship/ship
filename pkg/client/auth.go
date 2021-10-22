@@ -9,8 +9,9 @@ type UserResponse struct {
 }
 
 type TeamResponse struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID     string `json:"id"`
+	Handle string `json:"handle"`
+	Name   string `json:"name"`
 }
 
 func (client *Client) GetUser() (UserResponse, error) {
