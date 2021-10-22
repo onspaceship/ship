@@ -22,7 +22,7 @@ Currently implemented commands will be checked off below:
 
 - ✅ **`login`** - Logs ship into your Spaceship account.
 - ✅ **`logout`** - Logs ship out of the currently logged-in Spaceship account.
-- 🔳 **`configure-docker`** - Sets up Docker authentication to the Magic Container Registry.
+- ✅ **`configure-docker`** - Sets up Docker authentication to the Magic Container Registry.
 - 🔳 **`install-agent`** - Installs the Spaceship Agent into your current Kubernetes cluster.
 - 🔳 **`setup-delivery`** - Sets up delivery of an app to your current Kubernetes cluster.
 - 🔳 **`create-k8s-app`** - Set up a Deployment in Kubernetes for the current repo. (Note: This is planned to be a separate tool as well)
