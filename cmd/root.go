@@ -45,8 +45,16 @@ func Execute() {
 	}
 }
 
+var (
+	appHandle  string
+	teamHandle string
+)
+
 func init() {
 	cobra.OnInitialize(initConfig)
+
+	rootCmd.PersistentFlags().StringVarP(&teamHandle, "team", "t", "", "Team handle")
+	rootCmd.PersistentFlags().StringVarP(&appHandle, "app", "a", "", "App handle")
 }
 
 func initConfig() {
@@ -58,9 +66,6 @@ func initConfig() {
 	configPath := home + "/.ship/config.yaml"
 	viper.SetConfigFile(configPath)
 
-	viper.SetEnvPrefix("ship")
-	viper.AutomaticEnv()
-
 	if err := viper.ReadInConfig(); err != nil {
 		if !os.IsNotExist(err) {
 			log.Fatal(err)
@@ -70,4 +75,10 @@ func initConfig() {
 	if err = viper.WriteConfig(); err != nil {
 		log.Fatal(err)
 	}
+
+	viper.SetEnvPrefix("ship")
+	viper.AutomaticEnv()
+
+	viper.BindPFlag("current_team", rootCmd.PersistentFlags().Lookup("team"))
+	viper.BindPFlag("current_app", rootCmd.PersistentFlags().Lookup("app"))
 }
