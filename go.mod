@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/fatih/color v1.9.0
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/onspaceship/agent v0.0.0-20211010020726-af87c30623f2
+	github.com/onspaceship/agent v0.0.0-20211022201913-997946eb4f11
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0

@@ -407,8 +407,8 @@ github.com/onsi/gomega v1.5.0/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1Cpa
 github.com/onsi/gomega v1.7.1/go.mod h1:XdKZgCCFLUoM/7CFJVPcG8C1xQ1AJ0vpAezJrB7JYyY=
 github.com/onsi/gomega v1.10.1/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1ybHNo=
 github.com/onsi/gomega v1.15.0/go.mod h1:cIuvLEne0aoVhAgh/O6ac0Op8WWw9H6eYCriF+tEHG0=
-github.com/onspaceship/agent v0.0.0-20211010020726-af87c30623f2 h1:xmYWXfYGZUAcxoWwitb1i4BsEJzhzBJNYZRSkHOH7+c=
-github.com/onspaceship/agent v0.0.0-20211010020726-af87c30623f2/go.mod h1:l84bIvnue8Xaqzad4v/i5woD7yj8jlUzVUWPWY++n0k=
+github.com/onspaceship/agent v0.0.0-20211022201913-997946eb4f11 h1:KAg798BtjJhFqozrdko6y2RF/o+zu5i0CmehXNrW46k=
+github.com/onspaceship/agent v0.0.0-20211022201913-997946eb4f11/go.mod h1:l84bIvnue8Xaqzad4v/i5woD7yj8jlUzVUWPWY++n0k=
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
 github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/pelletier/go-toml v1.2.0/go.mod h1:5z9KED0ma1S8pY6P1sdut58dfprrGBbd/94hg7ilaic=
