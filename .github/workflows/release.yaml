@@ -24,6 +24,16 @@ jobs:
         with:
           go-version: '^1.17'
 
+      - name: Cache modules and build files
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
       - name: Release new version
         uses: goreleaser/goreleaser-action@v2
         with:
