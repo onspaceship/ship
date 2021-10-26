@@ -28,7 +28,7 @@ changelog:
 brews:
   - tap:
       owner: onspaceship
-      name: homebrew-tap
+      name: ship
     folder: Formula
     homepage: https://spaceship.run
     description: Launch your code with one click
