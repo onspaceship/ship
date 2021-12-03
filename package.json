@@ -1,0 +1,6 @@
+{
+  "name": "spaceship-cli",
+  "version": "1.0.0",
+  "description": "A CLI for the Spaceship platform",
+  "repository": "github:onspaceship/ship"
+}
