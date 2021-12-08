@@ -56,6 +56,10 @@ var setupDeliveryCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
+		if deployment.Labels == nil {
+			deployment.Labels = map[string]string{}
+		}
+
 		if _, exists := deployment.Labels[config.AppIdLabel]; exists {
 			color.HiRed("This deployment already has a delivery label. If you wish to update it, please remove the label first.")
 			os.Exit(1)
