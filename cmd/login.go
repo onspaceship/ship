@@ -50,7 +50,7 @@ var loginCmd = &cobra.Command{
 		code := urlParts[len(urlParts)-1]
 		tokenStr, err := fetchToken(ctx, core, code)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatalf("Could not get a token: %v", err)
 		}
 
 		token.SaveToken(tokenStr)

@@ -48,6 +48,7 @@ func (client *Client) Get(url string) (*http.Response, error) {
 	}
 
 	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", client.token))
+	req.Close = true
 
 	return client.http.Do(req)
 }
