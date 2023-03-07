@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://static.onspaceship.com/FullColor.svg" width="150">
+  <img src="https://storage.googleapis.com/spaceship-static/FullColor.svg" width="150">
 </p>
 
 <h3 align="center">
