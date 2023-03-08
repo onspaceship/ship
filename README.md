@@ -32,7 +32,7 @@ Currently implemented commands will be checked off below:
 
 ## Development
 
-Ship requires [go 1.17 or higher](https://golang.org/) to build.
+Ship requires [go 1.20 or higher](https://golang.org/) to build.
 
 ## Contributing
 
