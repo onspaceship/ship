@@ -1,6 +1,7 @@
 package token
 
 import (
+	"errors"
 	"log"
 	"os"
 
@@ -62,12 +63,21 @@ func init() {
 		log.Fatal(err)
 	}
 
-	configPath := home + "/.ship/credentials.yaml"
-	credStore.SetConfigFile(configPath)
+	configPath := home + "/.ship"
+	if _, err := os.Stat(configPath); errors.Is(err, os.ErrNotExist) {
+		err := os.Mkdir(configPath, os.ModePerm)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 
-	if err := credStore.SafeWriteConfigAs(configPath); err != nil {
-		if os.IsNotExist(err) {
-			if err = credStore.WriteConfigAs(configPath); err != nil {
+	credStore.AddConfigPath(configPath)
+	credStore.SetConfigName("credentials.yaml")
+	credStore.SetConfigType("yaml")
+
+	if err := credStore.SafeWriteConfig(); err != nil {
+		if _, ok := err.(viper.ConfigFileAlreadyExistsError); ok {
+			if err = credStore.WriteConfig(); err != nil {
 				log.Fatal(err)
 			}
 		}
